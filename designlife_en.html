@@ -17,7 +17,7 @@
   color: white;
   overflow-y: hidden; /* Hide vertical scrollbar */
   overflow-x: hidden; /* Hide horizontal scrollbar */
-
+  
 }
 
 h1 {
@@ -45,7 +45,7 @@ font-weight:700;
 </head>
 <body>
   
-    <h1>成為設計師</h1>
+    <h1>THE DAYS AS A DESIGNER</h1>
     <div class="timeContainer">
         <div class="line" id="yearDay"></div>
         <div class="line" id="time"></div>
@@ -66,10 +66,10 @@ font-weight:700;
             const seconds = totalSeconds % 60;
 
             document.getElementById('yearDay').innerText = 
-                `${years} 年 ${days} 天`;
+                `${years} Years ${days} Days`;
 
             document.getElementById('time').innerText = 
-                `${hours} 小時 ${minutes} 分鐘 ${seconds} 秒`;
+                `${hours} H ${minutes} M ${seconds} S`;
         }
 
         updateTime();
