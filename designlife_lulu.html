@@ -4,13 +4,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dynamic Time Counter</title>
+  <title>Entrance</title>
   <style>
     body {
       display: flex;
       justify-content: center;
-      /* 垂直置中 */
-      height: 90vh;
+
+      height: 95vh;
       /* 設定高度為視窗的高度 */
       font-family: monospace;
       flex-direction: column;
@@ -29,7 +29,8 @@
     h1 {
       font-size: 20px;
       color: #ffffff;
-      letter-spacing:6px;
+      letter-spacing: 2px;
+
     }
 
     .timeContainer {
@@ -41,21 +42,44 @@
     #yearDay {
       text-shadow: 2px 2px 4px #000000;
       font-weight: 700;
-      font-size: 35px;
+      font-size: 40px;
     }
 
     #time {
-      line-height: 30px;
+      line-height: 50px;
+    }
+
+    #Entrance {
+      border: 1.5px solid;
+      font-size: 20px;
+      color: #ffffff;
+      padding: 0px 24px 0px 24px;
+      height: 50px;
+      border-color: #ffffff;
+      border-radius: 10px;
+      background-color: #2d2d2d;
+      margin-top: 20px;
+      text-align: center;
+      transition-duration: 0.4s;
+
+    }
+
+    #Entrance:hover {
+      cursor: pointer;
+      color: #ffffff;
+      border-color: #676767;
+      background-color: #676767;
     }
   </style>
 </head>
 
 <body>
 
-  <h1>成為設計師</h1>
+  <h1>THE DAYS AS A DESIGNER</h1>
   <div class="timeContainer">
     <div class="line" id="yearDay"></div>
     <div class="line" id="time"></div>
+    <div><a href="https://lulu-chang.notion.site/Hello-I-m-Lulu-1c5cf77785ce4e82a7a2da07c59b97f6?pvs=4"><button id="Entrance" >Please Come In</button></a></div>
   </div>
 
   <script>
@@ -73,10 +97,10 @@
       const seconds = totalSeconds % 60;
 
       document.getElementById('yearDay').innerText =
-        `${years} 年 ${days} 天`;
+        `${years} Years ${days} Days`;
 
       document.getElementById('time').innerText =
-        `${hours} 小時 ${minutes} 分鐘 ${seconds} 秒`;
+        `${hours} H ${minutes} M ${seconds} S`;
     }
 
     updateTime();
