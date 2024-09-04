@@ -87,29 +87,51 @@
     padding-left: 16px;
   }
 
-  #gocn{
+  #gocn {
     font-size: 16px;
-    color:white;
+    color: white;
     text-decoration: none;
     line-height: 50px;
   }
-  #gocn:hover{
 
-    color:#8f8f8f;
+  #gocn:hover {
+
+    color: #8f8f8f;
     transition-duration: 0.4s;
 
   }
-  #favico{
-    width: 50px;
+
+  .container {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    cursor: pointer;
   }
 
+  .image {
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  .overlay {
+
+    transition: opacity 2s ease;
+  }
 </style>
 </head>
 
 <body>
-<img id="favico" src="https://github.com/aluludesign/github/blob/master/lufavicon_home_w.png?raw=true">
-<br>
-<br>
+  <div class="container">
+    <img id="imgA" src="https://raw.githubusercontent.com/aluludesign/github/master/A.png" alt="Image A"
+      class="image" />
+    <img id="imgB" src="https://raw.githubusercontent.com/aluludesign/github/master/B.png" alt="Image B"
+      class="image overlay" />
+  </div>
+  <br>
+  <br>
   <h1>THE DAYS AS A DESIGNER</h1>
   <div class="timeContainer">
     <div class="line" id="yearDay"></div>
@@ -145,6 +167,53 @@
     updateTime();
     setInterval(updateTime, 1000);
 
+
+
+
+
+    const imgB = document.getElementById('imgB');
+    const images = ['https://raw.githubusercontent.com/aluludesign/github/master/A.png', 'https://raw.githubusercontent.com/aluludesign/github/master/C.png', 'https://raw.githubusercontent.com/aluludesign/github/master/D.png', 'https://raw.githubusercontent.com/aluludesign/github/master/E.png', 'https://raw.githubusercontent.com/aluludesign/github/master/F.png'];
+    let round = 0;  // 計算輪數
+    let isChanging = false;  // 控制圖片是否在變換中
+
+    // 隨機選擇一張圖片
+    function getRandomImage() {
+      const randomIndex = Math.floor(Math.random() * images.length);
+      return images[randomIndex];
+    }
+
+    // 啟動變換圖片
+    function startImageChange() {
+      if (isChanging) return; // 防止在變換過程中重新啟動
+      isChanging = true;
+      round = 0;  // 重置輪數
+      const interval = setInterval(() => {
+        imgB.src = getRandomImage(); // 每0.3秒變換一次圖片
+        round++;
+
+        if (round >= 9) { // 9次變換（3輪）
+          clearInterval(interval);
+          finalizeImage(); // 停止後隨機定住一張圖片
+        }
+      }, 90);
+    }
+
+    // 隨機選擇並停止在最終圖片
+    function finalizeImage() {
+      setTimeout(() => {
+        imgB.src = getRandomImage(); // 最後隨機選擇一張圖片並停留
+        isChanging = false; // 標記變換已完成
+      }, 90);
+    }
+
+    // 點擊圖片後重新啟動隨機變換
+    imgB.addEventListener('click', () => {
+      if (!isChanging) { // 只有在變換停止時才能重新啟動
+        startImageChange();
+      }
+    });
+
+    startImageChange(); // 初始載入時啟動圖片變換
   </script>
 </body>
 
