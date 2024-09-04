@@ -103,14 +103,12 @@
 
   .container {
     position: relative;
-    width: 100px;
-    height: 100px;
-    cursor: pointer;
+    width: 200px;
+    height: 130px;
   }
 
   .image {
-    width: 100px;
-    height: 100px;
+
     position: absolute;
     top: 0;
     left: 0;
@@ -118,7 +116,13 @@
 
   .overlay {
 
-    transition: opacity 2s ease;
+    transition: opacity 0.3s ease;
+  }
+
+  .r-overlay {
+    top: 0;
+    left: 0;
+    cursor: pointer;
   }
 </style>
 </head>
@@ -129,7 +133,10 @@
       class="image" />
     <img id="imgB" src="https://raw.githubusercontent.com/aluludesign/github/master/B.png" alt="Image B"
       class="image overlay" />
+    <img id="imgR" src="https://raw.githubusercontent.com/aluludesign/github/master/R.png" alt="Image R"
+      class="image r-overlay" style="display: none;" />
   </div>
+
   <br>
   <br>
   <h1>THE DAYS AS A DESIGNER</h1>
@@ -172,6 +179,7 @@
 
 
     const imgB = document.getElementById('imgB');
+    const imgR = document.getElementById('imgR'); // R 圖片
     const images = ['https://raw.githubusercontent.com/aluludesign/github/master/A.png', 'https://raw.githubusercontent.com/aluludesign/github/master/C.png', 'https://raw.githubusercontent.com/aluludesign/github/master/D.png', 'https://raw.githubusercontent.com/aluludesign/github/master/E.png', 'https://raw.githubusercontent.com/aluludesign/github/master/F.png'];
     let round = 0;  // 計算輪數
     let isChanging = false;  // 控制圖片是否在變換中
@@ -187,6 +195,7 @@
       if (isChanging) return; // 防止在變換過程中重新啟動
       isChanging = true;
       round = 0;  // 重置輪數
+      imgR.style.display = 'none'; // 隱藏R圖
       const interval = setInterval(() => {
         imgB.src = getRandomImage(); // 每0.3秒變換一次圖片
         round++;
@@ -198,16 +207,17 @@
       }, 90);
     }
 
-    // 隨機選擇並停止在最終圖片
+    // 隨機選擇並停止在最終圖片，並顯示R圖
     function finalizeImage() {
       setTimeout(() => {
         imgB.src = getRandomImage(); // 最後隨機選擇一張圖片並停留
+        imgR.style.display = 'block'; // 顯示R圖
         isChanging = false; // 標記變換已完成
       }, 90);
     }
 
-    // 點擊圖片後重新啟動隨機變換
-    imgB.addEventListener('click', () => {
+    // 點擊R圖片後重新啟動隨機變換
+    imgR.addEventListener('click', () => {
       if (!isChanging) { // 只有在變換停止時才能重新啟動
         startImageChange();
       }
