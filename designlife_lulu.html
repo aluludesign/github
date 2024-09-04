@@ -2,89 +2,93 @@
 <html lang="en">
 
 <head>
- <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-HDB2GGW7GT"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-HDB2GGW7GT"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
 
-  gtag('config', 'G-HDB2GGW7GT');
-</script>
+    gtag('config', 'G-HDB2GGW7GT');
+  </script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="https://kit.fontawesome.com/8f0b54bfa5.js" crossorigin="anonymous"></script>
+
   <title>LULU CHANG</title>
-  <style>
-    body {
-      display: flex;
-      justify-content: center;
-      height: 95vh;
-      /* 設定高度為視窗的高度 */
-      font-family: monospace;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      background-color: #2d2d2d;
-      color: white;
-      overflow-y: hidden;
-      /* Hide vertical scrollbar */
-      overflow-x: hidden;
-      /* Hide horizontal scrollbar */
-      text-align: center;
+  <link rel="icon" type="image/x-icon" href="https://aluludesign.github.io/github/lufavicon.png">
+</head>
+<style>
+  body {
+    display: flex;
+    justify-content: center;
+    height: 95vh;
+    /* 設定高度為視窗的高度 */
+    font-family: monospace;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #2d2d2d;
+    color: white;
+    overflow-y: hidden;
+    /* Hide vertical scrollbar */
+    overflow-x: hidden;
+    /* Hide horizontal scrollbar */
+    text-align: center;
 
-    }
+  }
 
-    h1 {
-      font-size: 20px;
-      color: #ffffff;
-      letter-spacing: 2px;
+  h1 {
+    font-size: 20px;
+    color: #ffffff;
+    letter-spacing: 2px;
 
-    }
+  }
 
-    .timeContainer {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
+  .timeContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 
-    #yearDay {
-      text-shadow: 2px 2px 4px #000000;
-      font-weight: 700;
-      font-size: 40px;
-    }
+  #yearDay {
+    text-shadow: 2px 2px 4px #000000;
+    font-weight: 700;
+    font-size: 40px;
+  }
 
-    #time {
-      line-height: 50px;
-    }
+  #time {
+    line-height: 50px;
+  }
 
-    #Entrance {
-      font-family: monospace;
-      border: 1.5px solid;
-      font-size: 20px;
-      color: #ffffff;
-      padding: 18px 24px 16px 24px;
-      border-color: #ffffff;
-      border-radius: 10px;
-      background-color: #2d2d2d;
-      margin-top: 20px;
-      text-align: center;
-      transition-duration: 0.4s;
+  #Entrance {
+    font-family: monospace;
+    border: 1.5px solid;
+    font-size: 20px;
+    color: #ffffff;
+    padding: 18px 24px 16px 24px;
+    border-color: #ffffff;
+    border-radius: 10px;
+    background-color: #2d2d2d;
+    margin-top: 20px;
+    text-align: center;
+    transition-duration: 0.4s;
 
-    }
+  }
 
-    #Entrance:hover {
-      cursor: pointer;
-      color: #ffffff;
-      border-color: #676767;
-      background-color: #676767;
-    }
-i{
-  padding-left: 16px;
+  #Entrance:hover {
+    cursor: pointer;
+    color: #ffffff;
+    border-color: #676767;
+    background-color: #676767;
+  }
+
+  i {
+    padding-left: 16px;
 
 
-}
-  </style>
+  }
+</style>
 </head>
 
 <body>
@@ -93,7 +97,9 @@ i{
   <div class="timeContainer">
     <div class="line" id="yearDay"></div>
     <div class="line" id="time"></div>
-    <div><a target="_blank" href="https://lulu-chang.notion.site/Hello-I-m-Lulu-1c5cf77785ce4e82a7a2da07c59b97f6?pvs=4"><button id="Entrance">PLEASE COME IN<i class="fa-solid fa-person-walking-arrow-right"></i></button></a></div>
+    <div><a target="_blank"
+        href="https://lulu-chang.notion.site/Hello-I-m-Lulu-1c5cf77785ce4e82a7a2da07c59b97f6?pvs=4"><button
+          id="Entrance">PLEASE COME IN<i class="fa-solid fa-person-walking-arrow-right"></i></button></a></div>
   </div>
 
   <script>
