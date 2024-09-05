@@ -84,7 +84,7 @@
   }
 
   i {
-    padding-left: 16px;
+    padding-right: 16px;
   }
 
   #gocn {
@@ -134,13 +134,16 @@
   </div>
 
   <br>
-  <h1>THE DAYS AS A DESIGNER</h1>
+  <h1>AS A DESIGNER</h1>
   <div class="timeContainer">
     <div class="line" id="yearDay"></div>
     <div class="line" id="time"></div>
+    
+
+    
     <div><a target="_blank"
         href="https://lulu-chang.notion.site/Hello-I-m-Lulu-1c5cf77785ce4e82a7a2da07c59b97f6?pvs=4"><button
-          id="Entrance">PLEASE COME IN<i class="fa-solid fa-circle-right"></i></button></a>
+          id="Entrance">Lulu's portfolio</button></a>
     </div>
     <div><a id="gocn" target="_blank" href="https://lulu-chang.notion.site/Lulu-553b53f18ed9421d91e2fbd58d60fc7f">中文版</a></div>
   </div>
@@ -160,10 +163,10 @@
       const seconds = totalSeconds % 60;
 
       document.getElementById('yearDay').innerText =
-        `${years} Years ${days} Days`;
+        `${years} YEARS ${days} DAYS`;
 
       document.getElementById('time').innerText =
-        `${hours} H ${minutes} M ${seconds} S`;
+        `${hours} h ${minutes} m ${seconds} s`;
     }
 
     updateTime();

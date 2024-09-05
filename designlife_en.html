@@ -50,42 +50,62 @@
     #time {
       line-height: 50px;
     }
+    #totalDays{
+      display: none;
+    }
   </style>
 </head>
 
 <body>
 
-  <h1>THE DAYS AS A DESIGNER</h1>
+  <h1>AS A DESIGNER</h1>
   <div class="timeContainer">
+    <div class="line" id="totalDays"></div>
     <div class="line" id="yearDay"></div>
     <div class="line" id="time"></div>
   </div>
 
   <script>
 
-    function updateTime() {
-      const startDate = new Date('2016-08-01T00:00:00');
-      const now = new Date();
-
-      const totalSeconds = Math.floor((now - startDate) / 1000);
-
-      const years = Math.floor(totalSeconds / (3600 * 24 * 365.25));
-      const days = Math.floor((totalSeconds % (3600 * 24 * 365.25)) / (3600 * 24));
-      const hours = Math.floor((totalSeconds % (3600 * 24)) / 3600);
-      const minutes = Math.floor((totalSeconds % 3600) / 60);
-      const seconds = totalSeconds % 60;
-
-      document.getElementById('yearDay').innerText =
-        `${years} Years ${days} Days`;
-
-      document.getElementById('time').innerText =
-        `${hours} H ${minutes} M ${seconds} S`;
-    }
-
-    updateTime();
-    setInterval(updateTime, 1000);
-
-  </script>
+    function formatNumberWithCommas(number) {
+          return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        }
+    
+        function updateTime() {
+          const startDate = new Date('2016-08-01T00:00:00');
+          const now = new Date();
+    
+          const totalSeconds = Math.floor((now - startDate) / 1000);
+    
+          // 計算總天數
+          const totalDays = Math.floor(totalSeconds / (3600 * 24));
+    
+          // 計算年數和剩餘天數
+          const years = Math.floor(totalDays / 365.25);
+          const days = Math.floor(totalDays % 365.25);
+    
+          const hours = Math.floor((totalSeconds % (3600 * 24)) / 3600);
+          const minutes = Math.floor((totalSeconds % 3600) / 60);
+          const seconds = totalSeconds % 60;
+    
+          // 顯示總天數並加上千分位符號
+          document.getElementById('totalDays').innerText =
+            `${formatNumberWithCommas(totalDays)} Days`;
+    
+          // 顯示年數與天數
+          document.getElementById('yearDay').innerText =
+            `${years} YEARS ${days} DAYS`;
+    
+          // 顯示時、分、秒
+          document.getElementById('time').innerText =
+            `${hours} h ${minutes} m ${seconds} s`;
+        }
+    
+        updateTime();
+        setInterval(updateTime, 1000);
+    
+    
+      </script>
 </body>
 
 </html>
