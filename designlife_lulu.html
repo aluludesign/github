@@ -112,7 +112,7 @@
   }
 
   .overlay {
-    transition: opacity 0.3s ease;
+    transition: opacity 0.3s ease-in-out;
   }
 
   .r-overlay {
@@ -199,7 +199,7 @@
           clearInterval(interval);
           finalizeImage(); // 停止後隨機定住一張圖片
         }
-      }, 90);
+      }, 150);
     }
 
     // 隨機選擇並停止在最終圖片，並顯示R圖
@@ -208,7 +208,7 @@
         imgB.src = getRandomImage(); // 最後隨機選擇一張圖片並停留
         imgR.style.display = 'block'; // 顯示R圖
         isChanging = false; // 標記變換已完成
-      }, 90);
+      }, 150);
     }
 
     // 點擊R圖片後重新啟動隨機變換
