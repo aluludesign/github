@@ -129,10 +129,16 @@
 
 <body>
   <div class="container">
-    <img id="imgA" src="https://raw.githubusercontent.com/aluludesign/github/01390b4696cd900aa5827ab8b3854182f0d539c0/icon/A.svg" alt="Image A" class="image" />
-    <img id="imgB" src="https://raw.githubusercontent.com/aluludesign/github/01390b4696cd900aa5827ab8b3854182f0d539c0/icon/B.svg" alt="Image B" class="image overlay" />
-    <img id="imgR" src="https://raw.githubusercontent.com/aluludesign/github/01390b4696cd900aa5827ab8b3854182f0d539c0/icon/R.svg" alt="Image R" class="image r-overlay" style="display: none;" />
-</div>
+    <img id="imgA"
+      src="https://raw.githubusercontent.com/aluludesign/github/01390b4696cd900aa5827ab8b3854182f0d539c0/icon/A.svg"
+      alt="Image A" class="image" />
+    <img id="imgB"
+      src="https://raw.githubusercontent.com/aluludesign/github/01390b4696cd900aa5827ab8b3854182f0d539c0/icon/B.svg"
+      alt="Image B" class="image overlay" />
+    <img id="imgR"
+      src="https://raw.githubusercontent.com/aluludesign/github/01390b4696cd900aa5827ab8b3854182f0d539c0/icon/R.svg"
+      alt="Image R" class="image r-overlay" style="display: none;" />
+  </div>
 
   <br>
   <br>
@@ -174,53 +180,53 @@
 
 
 
-//隨機換圖開始
-const imgB = document.getElementById('imgB');
-const imgR = document.getElementById('imgR'); // R 圖片
-const images = ['https://raw.githubusercontent.com/aluludesign/github/01390b4696cd900aa5827ab8b3854182f0d539c0/icon/A.svg', 'https://raw.githubusercontent.com/aluludesign/github/01390b4696cd900aa5827ab8b3854182f0d539c0/icon/C.svg', 'https://raw.githubusercontent.com/aluludesign/github/01390b4696cd900aa5827ab8b3854182f0d539c0/icon/D.svg', 'https://raw.githubusercontent.com/aluludesign/github/01390b4696cd900aa5827ab8b3854182f0d539c0/icon/E.svg', 'https://raw.githubusercontent.com/aluludesign/github/01390b4696cd900aa5827ab8b3854182f0d539c0/icon/F.svg'];
-let round = 0;  // 計算輪數
-let isChanging = false;  // 控制圖片是否在變換中
+    //隨機換圖開始
+    const imgB = document.getElementById('imgB');
+    const imgR = document.getElementById('imgR'); // R 圖片
+    const images = ['https://raw.githubusercontent.com/aluludesign/github/01390b4696cd900aa5827ab8b3854182f0d539c0/icon/A.svg', 'https://raw.githubusercontent.com/aluludesign/github/01390b4696cd900aa5827ab8b3854182f0d539c0/icon/C.svg', 'https://raw.githubusercontent.com/aluludesign/github/01390b4696cd900aa5827ab8b3854182f0d539c0/icon/D.svg', 'https://raw.githubusercontent.com/aluludesign/github/01390b4696cd900aa5827ab8b3854182f0d539c0/icon/E.svg', 'https://raw.githubusercontent.com/aluludesign/github/01390b4696cd900aa5827ab8b3854182f0d539c0/icon/F.svg'];
+    let round = 0;  // 計算輪數
+    let isChanging = false;  // 控制圖片是否在變換中
 
-// 隨機選擇一張圖片
-function getRandomImage() {
-    const randomIndex = Math.floor(Math.random() * images.length);
-    return images[randomIndex];
-}
+    // 隨機選擇一張圖片
+    function getRandomImage() {
+      const randomIndex = Math.floor(Math.random() * images.length);
+      return images[randomIndex];
+    }
 
-// 啟動變換圖片
-function startImageChange() {
-    if (isChanging) return; // 防止在變換過程中重新啟動
-    isChanging = true;
-    round = 0;  // 重置輪數
-    imgR.style.display = 'none'; // 隱藏R圖
-    const interval = setInterval(() => {
+    // 啟動變換圖片
+    function startImageChange() {
+      if (isChanging) return; // 防止在變換過程中重新啟動
+      isChanging = true;
+      round = 0;  // 重置輪數
+      imgR.style.display = 'none'; // 隱藏R圖
+      const interval = setInterval(() => {
         imgB.src = getRandomImage(); // 每0.3秒變換一次圖片
         round++;
 
         if (round >= 9) { // 9次變換（3輪）
-            clearInterval(interval);
-            finalizeImage(); // 停止後隨機定住一張圖片
+          clearInterval(interval);
+          finalizeImage(); // 停止後隨機定住一張圖片
         }
-    }, 90);
-}
+      }, 90);
+    }
 
-// 隨機選擇並停止在最終圖片，並顯示R圖
-function finalizeImage() {
-    setTimeout(() => {
+    // 隨機選擇並停止在最終圖片，並顯示R圖
+    function finalizeImage() {
+      setTimeout(() => {
         imgB.src = getRandomImage(); // 最後隨機選擇一張圖片並停留
         imgR.style.display = 'block'; // 顯示R圖
         isChanging = false; // 標記變換已完成
-    }, 90);
-}
-
-// 點擊R圖片後重新啟動隨機變換
-imgR.addEventListener('click', () => {
-    if (!isChanging) { // 只有在變換停止時才能重新啟動
-        startImageChange();
+      }, 90);
     }
-});
 
-startImageChange(); // 初始載入時啟動圖片變換
+    // 點擊R圖片後重新啟動隨機變換
+    imgR.addEventListener('click', () => {
+      if (!isChanging) { // 只有在變換停止時才能重新啟動
+        startImageChange();
+      }
+    });
+
+    startImageChange(); // 初始載入時啟動圖片變換
   </script>
 </body>
 
